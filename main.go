@@ -59,12 +59,9 @@ func delayList() map[string][]string {
 		}
 		array := strings.Split(line, ",")
 		stonecode := array[0]
-
 		jpstime := toTimestamp(array[2])
 		recvtime := toTimestamp(array[16][8:17])
-
 		delay := fmt.Sprintf("%d", recvtime-jpstime)
-
 		_, ok := delaymap[stonecode]
 		if !ok {
 			fmt.Println(1111111111111)
@@ -72,7 +69,6 @@ func delayList() map[string][]string {
 		} else {
 			delaymap[stonecode] = append(delaymap[stonecode], delay)
 		}
-
 		fmt.Println(delay)
 	}
 	fmt.Println(delaymap)
